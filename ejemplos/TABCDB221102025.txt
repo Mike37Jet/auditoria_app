@@ -1,0 +1,7 @@
+TABCD	21/10/2025	5	10000.00
+1	Cuenta 1	Detalle	2000.00
+2	Cuenta 2	Detalle	2000.00
+3	Cuenta 3	Detalle	2000.00
+4	Cuenta 4	Detalle	2000.00
+5	Cuenta 5	Detalle	2000.00
+
