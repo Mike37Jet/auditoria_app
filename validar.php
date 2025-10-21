@@ -1,9 +1,4 @@
 <?php
-/**
- * Validador de Archivos Batch de Balance
- * Taller 5 - Auditoría de Sistemas
- */
-
 // Configuración de errores
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -93,7 +88,7 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
                 $numFilasDeclarado = trim($valores[2]);
                 $totalMonetarioDeclarado = trim($valores[3]);
                 
-                // Validar TVWXY (debe coincidir con las primeras 5 letras del nombre)
+                // Validar TVWXY
                 $tvwxyEsperado = substr($nombreArchivo, 0, 5);
                 if ($tvwxy !== $tvwxyEsperado) {
                     $errores[] = "ERROR: El codigo TVWXY ('$tvwxy') no coincide con el nombre del archivo ('$tvwxyEsperado')";
@@ -177,7 +172,7 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
             $lineaConError = null;
             foreach ($filasNoVacias as $index => $linea) {
                 if (strpos($linea, "\t") === false && trim($linea) !== '') {
-                    $lineaConError = $index + 2; // +2 porque empezamos desde línea 2 (índice 0 es línea 2)
+                    $lineaConError = $index + 2;
                     break;
                 }
             }
@@ -201,8 +196,6 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
             foreach ($filasNoVacias as $linea) {
                 $columnas = explode("\t", $linea);
                 
-                // Asumiendo que el grupo está en la primera columna y el monto en alguna columna
-                // Necesitamos definir estructura. Asumiremos: Grupo[TAB]...valores...[TAB]Monto
                 if (count($columnas) >= 2) {
                     $grupo = intval(trim($columnas[0]));
                     
