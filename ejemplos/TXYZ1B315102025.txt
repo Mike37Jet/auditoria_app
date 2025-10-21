@@ -1,6 +1,0 @@
-TXYZ1	15/10/2025	5	10000.00
-1	Grupo 1	Cuenta A	2000.00
-2	Grupo 2	Cuenta B	3000.00
-3	Grupo 3	Cuenta C	2500.00
-4	Grupo 4	Cuenta D	1500.00
-5	Grupo 5	Cuenta E	1000.00

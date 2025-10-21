@@ -1,9 +1,0 @@
-TBALB	21/10/2025	8	25000.00
-1	Activo Corriente	Caja	8000.00
-1	Activo Corriente	Bancos	5000.00
-2	Activo No Corriente	Terrenos	3000.00
-2	Activo No Corriente	Vehículos	2500.00
-3	Pasivo Corriente	Impuestos por Pagar	2000.00
-4	Pasivo No Corriente	Deudas Largo Plazo	3000.00
-5	Patrimonio	Capital Social	1000.00
-5	Patrimonio	Utilidades Retenidas	500.00

@@ -1,15 +1,14 @@
 <?php
-// Configuración de errores
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Variables para resultados
 $errores = [];
 $advertencias = [];
 $detalles = [];
 $archivoValido = false;
 
-// Verificar si se subió un archivo
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_FILES['archivo'])) {
     header('Location: index.php');
     exit();
@@ -17,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_FILES['archivo'])) {
 
 $archivo = $_FILES['archivo'];
 
-// Verificar errores de subida
 if ($archivo['error'] !== UPLOAD_ERR_OK) {
     $errores[] = "Error al subir el archivo. Código de error: " . $archivo['error'];
 } else {
@@ -88,31 +86,27 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
                 $numFilasDeclarado = trim($valores[2]);
                 $totalMonetarioDeclarado = trim($valores[3]);
                 
-                // Validar TVWXY
                 $tvwxyEsperado = substr($nombreArchivo, 0, 5);
                 if ($tvwxy !== $tvwxyEsperado) {
                     $errores[] = "ERROR: El codigo TVWXY ('$tvwxy') no coincide con el nombre del archivo ('$tvwxyEsperado')";
                 }
                 
-                // Validar formato de fecha DD/MM/YYYY
                 if (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $fechaCorte)) {
                     $errores[] = "ERROR: La fecha de corte debe estar en formato DD/MM/YYYY (encontrado: '$fechaCorte')";
                 } else {
-                    // Validar que sea una fecha válida
+
                     $partesFecha = explode('/', $fechaCorte);
                     if (!checkdate($partesFecha[1], $partesFecha[0], $partesFecha[2])) {
                         $errores[] = "ERROR: La fecha '$fechaCorte' no es valida";
                     }
                 }
                 
-                // Validar que numFilas sea numérico
                 if (!is_numeric($numFilasDeclarado) || $numFilasDeclarado < 0) {
                     $errores[] = "ERROR: El numero de filas debe ser un numero entero positivo (encontrado: '$numFilasDeclarado')";
                 } else {
                     $numFilasDeclarado = intval($numFilasDeclarado);
                 }
                 
-                // Validar que total monetario sea numérico
                 if (!is_numeric($totalMonetarioDeclarado)) {
                     $errores[] = "ERROR: El total monetario debe ser un numero (encontrado: '$totalMonetarioDeclarado')";
                 } else {
@@ -136,16 +130,13 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
         // VALIDACIÓN 3: FILAS ÚTILES Y LÍNEAS VACÍAS
         // ==========================================
         if (empty($errores)) {
-            // Eliminar la primera línea para contar solo filas útiles
             $lineasUtiles = array_slice($lineas, 1);
             
-            // Verificar si la última línea está vacía
             $ultimaLinea = end($lineasUtiles);
             if (trim($ultimaLinea) === '') {
                 $errores[] = "ERROR: La ultima linea del archivo esta vacia. El numero de filas utiles no es correcto.";
             }
             
-            // Contar líneas no vacías
             $filasNoVacias = array_filter($lineasUtiles, function($linea) {
                 return trim($linea) !== '';
             });
@@ -199,8 +190,7 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
                 if (count($columnas) >= 2) {
                     $grupo = intval(trim($columnas[0]));
                     
-                    // El monto está en la última columna
-                    $monto = floatval(trim($columnas[count($columnas) - 1]));
+                    $monto = floatval(trim($columnas[1]));
                     
                     if ($grupo >= 1 && $grupo <= 5) {
                         $subtotalesGrupos[$grupo] += $monto;
@@ -222,7 +212,6 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
                 'descripcion' => $detallesSubtotales
             ];
             
-            // Comparar con tolerancia para decimales
             $diferencia = abs($sumaSubtotales - $totalMonetarioDeclarado);
             if ($diferencia > 0.01) {
                 $errores[] = "ERROR: La suma de subtotales (" . number_format($sumaSubtotales, 2, ',', '.') . 
@@ -238,7 +227,7 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
     }
 }
 
-// Determinar si el archivo es válido
+
 $archivoValido = empty($errores);
 
 ?>

@@ -1,7 +1,0 @@
-TFINB	01/01/2026	6	18000.00
-1	Activo Corriente	Efectivo en Caja	4000.00
-2	Activo No Corriente	Inversiones Permanentes	5000.00
-3	Pasivo Corriente	Obligaciones Bancarias	3000.00
-4	Pasivo No Corriente	Bonos por Pagar	2000.00
-5	Patrimonio	Capital Social	3000.00
-5	Patrimonio	Utilidades	1000.00

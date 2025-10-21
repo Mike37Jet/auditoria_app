@@ -1,4 +1,0 @@
-TQWER	32/13/2025	3	6000.00
-1	Cuenta 1	Detalle	2000.00
-2	Cuenta 2	Detalle	2000.00
-3	Cuenta 3	Detalle	2000.00
