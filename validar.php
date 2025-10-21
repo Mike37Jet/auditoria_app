@@ -310,10 +310,6 @@ $archivoValido = empty($errores);
                         <i class="bi bi-arrow-left"></i> Validar otro archivo
                     </a>
                 </div>
-
-                <footer class="text-center mt-5 text-muted">
-                    <small>Taller 5 - Auditoría de Sistemas | 2025</small>
-                </footer>
             </div>
         </div>
     </div>

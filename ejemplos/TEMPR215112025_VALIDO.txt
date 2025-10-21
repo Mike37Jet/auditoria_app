@@ -1,0 +1,13 @@
+TEMPR	15/11/2025	12	50000.00
+1	Activo Corriente	Efectivo	10000.00
+1	Activo Corriente	Inversiones Temporales	8000.00
+1	Activo Corriente	Inventarios	7000.00
+2	Activo No Corriente	Maquinaria	6000.00
+2	Activo No Corriente	Equipos de Oficina	4000.00
+3	Pasivo Corriente	Proveedores	3000.00
+3	Pasivo Corriente	Sueldos por Pagar	2500.00
+4	Pasivo No Corriente	Préstamos Bancarios	4000.00
+4	Pasivo No Corriente	Obligaciones	2000.00
+5	Patrimonio	Capital	2000.00
+5	Patrimonio	Reserva Legal	1000.00
+5	Patrimonio	Utilidades del Ejercicio	500.00

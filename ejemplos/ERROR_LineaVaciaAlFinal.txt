@@ -1,0 +1,7 @@
+TABCD	21/10/2025	8	10000.00
+1	Activo Corriente	Efectivo	2000.00
+1	Activo Corriente	Bancos	1500.00
+2	Activo No Corriente	Edificios	2000.00
+3	Pasivo Corriente	Proveedores	1500.00
+4	Pasivo No Corriente	Préstamos	2000.00
+5	Patrimonio	Capital	1000.00

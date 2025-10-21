@@ -1,0 +1,8 @@
+TVWXY   21/10/2025  7   10000.00
+1   Activo Corriente	Efectivo y Equivalentes	3000.00
+1	Activo Corriente	Cuentas por Cobrar	1500.00
+2	Activo No Corriente	Propiedad Planta Equipo	2000.00
+3	Pasivo Corriente	Cuentas por Pagar	1000.00
+3	Pasivo Corriente	Obligaciones Financieras	800.00
+4	Pasivo No Corriente	Prestamos Largo Plazo	700.00
+5	Patrimonio  Capital Social  1000.00

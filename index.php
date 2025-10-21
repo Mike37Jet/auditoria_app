@@ -36,45 +36,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0"><i class="bi bi-file-text"></i> Formato del Nombre</h5>
-                            </div>
-                            <div class="card-body">
-                                <p><strong>TVWXYBZDDMMAAAA.txt</strong></p>
-                                <ul class="list-unstyled small">
-                                    <li><i class="bi bi-dot"></i> <strong>T y B:</strong> Letras fijas</li>
-                                    <li><i class="bi bi-dot"></i> <strong>VWXY:</strong> Código personalizado (4 caracteres)</li>
-                                    <li><i class="bi bi-dot"></i> <strong>Z:</strong> Código de balance (1-4)</li>
-                                    <li><i class="bi bi-dot"></i> <strong>DDMMAAAA:</strong> Fecha</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <h5 class="card-title mb-0"><i class="bi bi-list-ul"></i> Contenido del Archivo</h5>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-unstyled small">
-                                    <li><i class="bi bi-dot"></i> Primera línea: TVWXY [TAB] DD/MM/YYYY [TAB] NumFilas [TAB] Total</li>
-                                    <li><i class="bi bi-dot"></i> Separador: Tabulador en todas las líneas</li>
-                                    <li><i class="bi bi-dot"></i> Filas útiles deben coincidir</li>
-                                    <li><i class="bi bi-dot"></i> Sin líneas vacías al final</li>
-                                    <li><i class="bi bi-dot"></i> Suma de subtotales correcta</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <footer class="text-center mt-5 text-muted">
-                    <small>Taller 5 - Auditoría de Sistemas | 2025</small>
-                </footer>
             </div>
         </div>
     </div>

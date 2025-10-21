@@ -1,12 +1,27 @@
-# Validador de Archivos Batch de Balance
+# 🏦 Validador de Archivos Batch de Balance
 
-Aplicacion web PHP para validar archivos batch de balance segun especificaciones de formato y contenido.
+[![PHP](https://img.shields.io/badge/PHP-7.4+-blue.svg)](https://php.net)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg)](https://getbootstrap.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-## Instalacion en Laragon
+Aplicación web PHP profesional para validar archivos batch de balance según especificaciones estrictas de formato y contenido. Desarrollada para el **Taller 5 - Auditoría de Sistemas**.
+
+## ✨ Características
+
+- ✅ Validación completa de formato de nombre de archivo
+- ✅ Verificación de estructura y contenido del archivo
+- ✅ Validación de suma de subtotales por grupos
+- ✅ Interfaz moderna y responsiva con Bootstrap 5
+- ✅ Mensajes de error claros y específicos
+- ✅ Feedback visual intuitivo
+- ✅ Compatible con archivos de balance tipos 1, 2, 3 y 4
+
+## 🚀 Instalación en Laragon
 
 ### Requisitos Previos
-- **Laragon** instalado (https://laragon.org/download/)
+- **Laragon** instalado ([Descargar aquí](https://laragon.org/download/))
 - PHP 7.4 o superior (incluido en Laragon)
+- Navegador web moderno
 
 ### Pasos de Instalación
 

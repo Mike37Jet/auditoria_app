@@ -1,0 +1,6 @@
+TABCD	32/13/2025	5	8000.00
+1	Activo	Efectivo	2000.00
+2	Activo No Corriente	Inmuebles	2000.00
+3	Pasivo	Proveedores	2000.00
+4	Pasivo No Corriente	Préstamos	1000.00
+5	Patrimonio	Capital	1000.00
