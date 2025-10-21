@@ -67,7 +67,6 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
         $contenido = file_get_contents($rutaTemporal);
         $lineas = explode("\n", $contenido);
         
-        // Convertir saltos de línea Windows a Unix si es necesario
         if (strpos($contenido, "\r\n") !== false) {
             $lineas = explode("\r\n", $contenido);
         }
@@ -84,7 +83,6 @@ if ($archivo['error'] !== UPLOAD_ERR_OK) {
                 'descripcion' => "<code>" . htmlspecialchars($primeraLinea) . "</code>"
             ];
             
-            // Separar por tabulador
             $valores = explode("\t", $primeraLinea);
             
             if (count($valores) !== 4) {
@@ -257,51 +255,69 @@ $archivoValido = empty($errores);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado de Validación</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Resultado de Validacion</h1>
-        </header>
+<body class="bg-light">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center mb-4">Resultado de Validación</h1>
 
-        <div class="result-section <?php echo $archivoValido ? 'success' : 'error'; ?>">
-            <?php if ($archivoValido): ?>
-                <div class="result-icon success-icon">OK</div>
-                <h2 class="result-title">Archivo Valido</h2>
-                <p class="result-message">El archivo cumple con todos los requisitos de formato y contenido.</p>
-            <?php else: ?>
-                <div class="result-icon error-icon">X</div>
-                <h2 class="result-title">Archivo Rechazado</h2>
-                <p class="result-message">Se encontraron los siguientes errores:</p>
-                
-                <div class="error-list">
-                    <?php foreach ($errores as $error): ?>
-                        <div class="error-item"><?php echo htmlspecialchars($error); ?></div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-        </div>
-
-        <?php if (!empty($detalles)): ?>
-            <div class="details-section">
-                <h3>Detalles de la Validacion</h3>
-                <?php foreach ($detalles as $detalle): ?>
-                    <div class="detail-item">
-                        <h4><?php echo htmlspecialchars($detalle['titulo']); ?></h4>
-                        <p><?php echo $detalle['descripcion']; ?></p>
+                <?php if ($archivoValido): ?>
+                    <div class="alert alert-success text-center">
+                        <i class="bi bi-check-circle-fill fs-1 text-success"></i>
+                        <h2 class="mt-2">Archivo Válido</h2>
+                        <p>El archivo cumple con todos los requisitos de formato y contenido.</p>
                     </div>
-                <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="alert alert-danger">
+                        <div class="text-center">
+                            <i class="bi bi-x-circle-fill fs-1 text-danger"></i>
+                            <h2 class="mt-2">Archivo Rechazado</h2>
+                            <p>Se encontraron los siguientes errores:</p>
+                        </div>
+                        
+                        <ul class="list-unstyled mt-3">
+                            <?php foreach ($errores as $error): ?>
+                                <li class="mb-1"><i class="bi bi-exclamation-circle text-warning"></i> <?php echo htmlspecialchars($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($detalles)): ?>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Detalles de la Validación</h3>
+                        </div>
+                        <div class="card-body">
+                            <?php foreach ($detalles as $detalle): ?>
+                                <div class="mb-3">
+                                    <h5 class="text-primary"><?php echo htmlspecialchars($detalle['titulo']); ?></h5>
+                                    <div class="text-muted"><?php echo $detalle['descripcion']; ?></div>
+                                </div>
+                                <?php if ($detalle !== end($detalles)): ?>
+                                    <hr>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <div class="text-center mt-4">
+                    <a href="index.php" class="btn btn-primary">
+                        <i class="bi bi-arrow-left"></i> Validar otro archivo
+                    </a>
+                </div>
+
+                <footer class="text-center mt-5 text-muted">
+                    <small>Taller 5 - Auditoría de Sistemas | 2025</small>
+                </footer>
             </div>
-        <?php endif; ?>
-
-        <div class="actions">
-            <a href="index.php" class="btn-back">Validar otro archivo</a>
         </div>
-
-        <footer>
-            <p>Taller 5 - Auditoria de Sistemas | 2025</p>
-        </footer>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
